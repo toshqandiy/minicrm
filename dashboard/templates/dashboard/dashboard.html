@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="py-6 px-6">
+    <h1 class="mb-6 text-xl">Dashboard</h1>
+
+    <div class="flex space-x-4">
+        <div class="w-1/2 px-4 py-6 bg-gray-100 rounded-xl leads">
+            <h2 class="mb-4 text-lg">Newest customers</h2>
+
+            {% for customer in customers %}
+                <div class="mb-2 lead">
+                    <h3 class="font-semibold">{{ customer.full_name }}</h3>
+
+                    <a href="{% url 'customers_detail' customer.pk %}">Details</a>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

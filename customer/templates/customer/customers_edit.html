@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit customer{% endblock %}
+
+{% block content %}
+    <div class="py-6 px-6">
+        <h1 class="text-lg">Edit customer</h1>
+
+        <form method="post" action=".">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button class="py-4 px-8 bg-teal-500 text-white rounded-xl">Submit</button>
+            <a href="{% url 'customers_list' %}" class="py-2 px-4 rounded-xl bg-slate-200">Back to customers</a>
+        </form>
+    </div>
+{% endblock %}
